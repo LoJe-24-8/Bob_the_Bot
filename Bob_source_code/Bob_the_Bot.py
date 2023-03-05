@@ -15,6 +15,7 @@ from dotenv import load_dotenv
 
 load_dotenv()
 TOKEN = os.getenv('DISCORD_TOKEN')
+DISCORD_SERVER_CHANNEL = os.getenv('DISCORD_SERVER_CHANNEL')
 
 intents = discord.Intents.default()
 intents.typing = False
@@ -32,7 +33,7 @@ async def on_connect():
 @bot.event
 async def on_ready():
     print("Bob is ready!")
-    await bot.get_channel(874971354678558750).send("Bob is ready!")
+    await bot.get_channel(DISCORD_SERVER_CHANNEL).send("Bob is ready!")
     
 @bot.command(name='greet')
 async def greet(ctx):
