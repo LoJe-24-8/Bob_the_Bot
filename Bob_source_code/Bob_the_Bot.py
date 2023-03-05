@@ -15,7 +15,7 @@ from dotenv import load_dotenv
 
 load_dotenv()
 TOKEN = os.getenv('DISCORD_TOKEN')
-DISCORD_SERVER_CHANNEL = os.getenv('DISCORD_SERVER_CHANNEL')
+DISCORD_SERVER_CHANNEL = int(os.getenv('DISCORD_SERVER_CHANNEL'))
 
 intents = discord.Intents.default()
 intents.typing = False
