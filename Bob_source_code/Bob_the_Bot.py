@@ -98,7 +98,8 @@ async def roll_call(ctx, start_time_utc=18, slot1react=':green_apple:',
     first_msg = True
     first_day_week = False
     for i in range(12):
-        if days_list == []: break
+        if not days_list:
+            break
         print(f"scanning {today.strftime('%a %w %b %Y')} with first CB day = {days_list[0]}")
         if today.strftime("%a") == days_list[0]:  # check that the first CB day of the week has been found
             first_day_week = True
@@ -117,11 +118,21 @@ async def roll_call(ctx, start_time_utc=18, slot1react=':green_apple:',
                 today.replace(hour=start_time_utc + 4, minute=0, second=0, microsecond=0).timetuple())
             if first_msg:
                 message = await ctx.send(
-                    f"This is the roll-call for **{day_title}**. Please react accordingly if you want to play in the respective time slots (times will be displayed as your local time if your device is set to the correct time zone):\n\n<t:{timemarker1}> to <t:{timemarker2}>: {slot1react}\n<t:{timemarker2}> to <t:{timemarker3}>: {slot2react}\n<t:{timemarker3}> to <t:{timemarker4}>: {slot3react}\n<t:{timemarker4}> to <t:{timemarker5}>: {slot4react}\nCannot make it: {absentreact}")
+                    f"This is the roll-call for **{day_title}**. Please react accordingly if you want to play in the "
+                    f"respective time slots (times will be displayed as your local time if your device is set to the "
+                    f"correct time zone):\n\n<t:{timemarker1}> to <t:{timemarker2}>: {slot1react}\n<t:{timemarker2}> "
+                    f"to <t:{timemarker3}>: {slot2react}\n<t:{timemarker3}> to <t:{timemarker4}>: {slot3react}\n<t:"
+                    f"{timemarker4}> to <t:{timemarker5}>: {slot4react}\nCannot make it: {absentreact}")
                 first_msg = False
             else:
                 message = await ctx.send(
-                    f"#+#+#+#+#+#+#+#+#+#+#+#+#+#+#+#+#+#\nThis is the roll-call for **{day_title}**. Please react accordingly if you want to play in the respective time slots (times will be displayed as your local time if your device is set to the correct time zone):\n\n<t:{timemarker1}> to <t:{timemarker2}>: {slot1react}\n<t:{timemarker2}> to <t:{timemarker3}>: {slot2react}\n<t:{timemarker3}> to <t:{timemarker4}>: {slot3react}\n<t:{timemarker4}> to <t:{timemarker5}>: {slot4react}\nCannot make it: {absentreact}")
+                    f"#+#+#+#+#+#+#+#+#+#+#+#+#+#+#+#+#+#\n"
+                    f"This is the roll-call for **{day_title}**. Please react "
+                    f"accordingly if you want to play in the respective time slots (times will be displayed as your "
+                    f"local time if your device is set to the correct time zone):\n\n<t:{timemarker1}> to <t:"
+                    f"{timemarker2}>: {slot1react}\n<t:{timemarker2}> to <t:{timemarker3}>: {slot2react}\n<t:"
+                    f"{timemarker3}> to <t:{timemarker4}>: {slot3react}\n<t:{timemarker4}> to <t:{timemarker5}>: "
+                    f"{slot4react}\nCannot make it: {absentreact}")
             for react in reacts:
                 await message.add_reaction(react)
         today += datetime.timedelta(days=1)
