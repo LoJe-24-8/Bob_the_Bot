@@ -1,0 +1,36 @@
+{
+  "header": [],
+  "settings": [],
+  "default_values": [
+    {
+      "name": "default_start_time_utc",
+      "value": 18,
+      "hint": "The default UTC starting time of each evening session. Overridden on call to roll_call by user input."
+    },
+    {
+      "name": "minute_offset",
+      "value": 0,
+      "hint": "The minute value of the offset between the start_time_utc and the beginning of the session."
+    },
+    {
+      "name": "second_offset",
+      "value": 0,
+      "hint": "The seconds value of the offset between the start_time_utc and the beginning of the session."
+    },
+    {
+      "name": "microsecond_offset",
+      "value": 0,
+      "hint": "The microseconds value of the offset between the start_time_utc and the beginning of the session."
+    },
+    {
+      "name": "days_list",
+      "value": ["Wed", "Thu", "Sat", "Sun"],
+      "hint": "Days of CB sessions."
+    },
+    {
+      "name": "help_message",
+      "value": "Bob is a bot. And does Bob the Bot do?\nBob the Bot does your beloved CB roll call.\nBut how can I get Bob the Bot to do what Bob the Bot does?\nAt the beginning of the CB week, type `/roll_call` followed by the UTC starting time of the CB session, and 5 emotes for people to react to.\nAnd then, sit and watch :wink:",
+      "hint": "Days of CB sessions - from 'Mon Tue Wed Thu Fri Sat Sun'"
+    }
+  ]
+}
