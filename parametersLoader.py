@@ -26,7 +26,7 @@ class Parameters():
                 for setting in data['settings']:
                     if setting['name'] is not None:
                         if setting['name'] in self.settings.keys():
-                            print(f'Setting {setting['name']} is duplicated in '
+                            print(f'Setting {setting["name"]} is duplicated in '
                                   f'{self.paramFilePath}{self.paramFileName}, value will be overwritten.')
                         else:
                             self.settings[setting['name']] = setting['value']
@@ -34,7 +34,7 @@ class Parameters():
                 for defaultValue in data['default_values']:
                     if defaultValue['name'] is not None:
                         if defaultValue['name'] in self.defaultValues.keys():
-                            print(f'Default value {defaultValue['name']} is duplicated in '
+                            print(f'Default value {defaultValue["name"]} is duplicated in '
                                   f'{self.paramFilePath}{self.paramFileName}, value will be overwritten.')
                         else:
                             self.defaultValues[defaultValue['name']] = defaultValue['value']
